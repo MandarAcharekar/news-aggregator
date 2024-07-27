@@ -1,15 +1,23 @@
+const dotenv = require('dotenv');
 const express = require('express');
+
+
+dotenv.config();
+
 const app = express();
-const port = 3000;
+// const port = 3000;
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, (err) => {
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (err) => {
     if (err) {
         return console.log('Something bad happened', err);
     }
-    console.log(`Server is listening on ${port}`);
+    console.log(`Server is listening on ${PORT}`);
 });
 
 
